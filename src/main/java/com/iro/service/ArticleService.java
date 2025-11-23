@@ -44,11 +44,13 @@ public class ArticleService {
     }
 
     public List<ArticleDto> getAllArticles() {
-        return articleRepository.findAll()
+        return articleRepository.getAllArticlesWithAuthors()
             .stream()
             .map(articleEntity ->
-                new ArticleDto(articleEntity.getTitle(), articleEntity.getContent())
-            )
+                new ArticleDto(
+                        articleEntity.getTitle(),
+                        articleEntity.getContent(),
+                        articleEntity.getAuthor().getUsername()))
             .toList();
     }
 }

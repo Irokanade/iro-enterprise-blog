@@ -28,17 +28,6 @@ public class ArticleController {
         this.articleService = articleService;
     }
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String userHomePage(Locale locale, Model model, Authentication authentication) {
-        logger.info("Welcome home! The client locale is {}.", locale);
-
-        List<ArticleDto> articles = articleService.getAllArticles();
-
-        model.addAttribute("currentUser", authentication.getName());
-        model.addAttribute("articles", articles);
-        return "home";
-    }
-
     @RequestMapping(value = "/create-article", method = RequestMethod.GET)
     public String createArticlePage() {
         return "create-article";
@@ -48,6 +37,7 @@ public class ArticleController {
     public String createArticleForm(@ModelAttribute ArticleCreateFormDto articleCreateFormDto,
                                 Authentication authentication) {
         articleService.addArticle(articleCreateFormDto, authentication.getName());
+        logger.info("User {} created article", authentication.getName());
         return "redirect:/home";
     }
 }

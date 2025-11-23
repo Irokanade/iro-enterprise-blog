@@ -19,6 +19,7 @@
         <div>
             <h3>${article.title}</h3>
             <p>${article.content}</p>
+            <p>Author: ${article.authorUsername}</p>
         </div>
         <hr/>
     </c:forEach>

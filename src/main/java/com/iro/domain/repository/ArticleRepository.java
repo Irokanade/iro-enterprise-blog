@@ -7,4 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface ArticleRepository extends JpaRepository<ArticleEntity, Long> {
+
+    @Query("SELECT a FROM ArticleEntity a JOIN FETCH a.author")
+    List<ArticleEntity> getAllArticlesWithAuthors();
 }
