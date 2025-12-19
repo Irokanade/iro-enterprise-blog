@@ -5,7 +5,7 @@
     <title>Create Article</title>
 </head>
 <body>
-<form:form action="/create-article" method="post">
+<form:form action="/article/create" method="post">
     <label>Title:
         <input type="text" name="title">
     </label><br>

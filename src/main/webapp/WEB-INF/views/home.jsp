@@ -12,7 +12,7 @@
         <input type="submit" value="Logout" />
     </form:form>
 
-    <button type=button onclick="location.href='/create-article';">Create new article</button>
+    <button type=button onclick="location.href='/article/create';">Create new article</button>
 
     <h2>Articles</h2>
     <c:forEach var="article" items="${articles}">

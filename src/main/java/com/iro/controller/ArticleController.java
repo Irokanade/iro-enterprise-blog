@@ -28,12 +28,12 @@ public class ArticleController {
         this.articleService = articleService;
     }
 
-    @RequestMapping(value = "/create-article", method = RequestMethod.GET)
+    @RequestMapping(value = "/article/create", method = RequestMethod.GET)
     public String createArticlePage() {
-        return "create-article";
+        return "article-create";
     }
 
-    @RequestMapping(value = "/create-article", method = RequestMethod.POST)
+    @RequestMapping(value = "/article/create", method = RequestMethod.POST)
     public String createArticleForm(@ModelAttribute ArticleCreateFormDto articleCreateFormDto,
                                 Authentication authentication) {
         articleService.addArticle(articleCreateFormDto, authentication.getName());

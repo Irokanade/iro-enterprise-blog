@@ -23,7 +23,8 @@
         <intercept-url pattern="/signup" access="permitAll" />
         <intercept-url pattern="/login" access="permitAll" />
         <intercept-url pattern="/home" access="isAuthenticated()" />
-<!--        <intercept-url pattern="/**" access="isAuthenticated()" />-->
+        <intercept-url pattern="/article/**" access="isAuthenticated()" />
+        <!--        <intercept-url pattern="/**" access="isAuthenticated()" />-->
 
         <access-denied-handler error-page="/login" />
 
